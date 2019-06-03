@@ -1,13 +1,23 @@
 <template>
   <section class="photo-area">
-    <p>Photos here</p>
+    <Photo v-for="photo in photos" :photo="photo" :key="photo.id"></Photo>
   </section>
 </template>
 
 <script>
+import Photo from './Photo.vue'
 
 export default {
   name: 'photoArea',
+  props: {
+    photos: {
+      type: Array,
+      required: true,
+    },
+  },
+  components: {
+    Photo,
+  },
   
 };
 </script>

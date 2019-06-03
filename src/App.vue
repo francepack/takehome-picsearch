@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Banner v-show="showTitle"></Banner>
-    <Search></Search>
-    <PhotoArea></PhotoArea>
+    <Search @searchPhotos="getPhotos"></Search>
+    <PhotoArea v-if="photos.length" :photos="photos"></PhotoArea>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <header class="banner">
-    <h1>Picsearcht</h1>
+    <h1>Picsearch</h1>
   </header>
 </template>
 

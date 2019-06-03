@@ -1,6 +1,6 @@
 <template>
   <section class="photo">
-    <p>Pics here</p>
+    <p>{{ photo.name }}</p>
   </section>
 </template>
 
@@ -9,6 +9,12 @@
 
 export default {
   name: 'photo',
+  props: {
+    photo: {
+      type: Object,
+      required: true,
+    },
+  },
   
 };
 </script>

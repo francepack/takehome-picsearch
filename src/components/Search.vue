@@ -24,8 +24,8 @@ export default {
       const searchWord = this.searchInput
       this.$emit('searchPhotos', searchWord);
       this.searchInput = ''
-    }
-  }
+    },
+  },
 }
 </script>
 

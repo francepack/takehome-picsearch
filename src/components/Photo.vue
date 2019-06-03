@@ -2,7 +2,7 @@
   <section class="photo">
     <div class="photo-head">
       <img src="http://www.pngall.com/wp-content/uploads/2/ThumbTack-PNG-File-Download-Free.png" />
-      <p>Photo credit: {{ photo.user }}</p>
+      <p>Photo by: {{ photo.user }}</p>
     </div>
     <div class="image-area">
       <img :src="photo.url" :alt="photo.alt_description" class="picture" />
@@ -12,7 +12,7 @@
       <p v-if="!photo.description && !photo.alt_description">No description given by user</p>
       <p>{{ photo.description }}</p>
       <p>{{ photo.alt_description }}</p>
-      <h4>Associated terms</h4>
+      <h3>Associated terms</h3>
       <ul class="tags">
         <li v-for="(tag, index) in photo.tags" :key="index" class="tag">
           {{ tag }}<span v-if="index !== photo.tags.length - 1">,</span>
@@ -53,9 +53,12 @@ export default {
 
 .photo-head p {
   margin-top: 0;
+  font-size: 150%;
 }
 
 .picture {
+  border-top: 2px solid #2c3e50;
+  border-bottom: 2px solid #2c3e50;
   height: 350px;
   width: 100%;
 }
@@ -65,11 +68,12 @@ export default {
 }
 
 h3 {
-  margin-top: 4px;
+  margin-top: 6px;
+  text-decoration: underline;
 }
 
 .tags {
-  margin: 0;
+  margin-top: 0;
   padding: 0;
 }
 

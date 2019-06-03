@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Banner></Banner>
+    <Banner v-show="showTitle"></Banner>
     <Search></Search>
     <PhotoArea></PhotoArea>
   </div>
@@ -14,6 +14,14 @@ import PhotoArea from './components/PhotoArea.vue'
 
 export default {
   name: 'app',
+  data () {
+    return {
+      searchWord: '',
+      showTitle: true,
+      photos: [],
+      error: '',
+    }
+  },
   components: {
     Banner,
     Search,

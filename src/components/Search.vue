@@ -1,7 +1,10 @@
 <template>
   <section class='search-area'>
-    <form >
-      <input 
+    <form @submit.prevent="handleSubmit">
+      <input type="text"
+             class="search-input"
+             placeholder="Search for..."
+             v-model="searchInput"
       />
       <button>Submit</button>
     </form>
@@ -16,6 +19,13 @@ export default {
       searchInput: '',
     }
   },
+  methods: {
+    handleSubmit() {
+      const searchWord = this.searchInput
+      this.$emit('searchPhotos', searchWord);
+      this.searchInput = ''
+    }
+  }
 }
 </script>
 

@@ -6,12 +6,13 @@
     </div>
     <div class="photo-info">
       <h3>User Description</h3>
+      <p v-if="!photo.description && !photo.alt_description">No description given by user</p>
       <p>{{ photo.description }}</p>
       <p>{{ photo.alt_description }}</p>
       <h4>Associated terms</h4>
       <ul class="tags">
         <li v-for="(tag, index) in photo.tags" :key="index" class="tag">
-          {{ tag }}
+          {{ tag }}<span v-if="index !== photo.tags.length - 1">,</span>
         </li>
       </ul>
     </div>
@@ -46,8 +47,12 @@ export default {
   width: 100%;
 }
 
-.photo-info{
+.photo-info {
   padding: 10px;
+}
+
+h3 {
+  margin-top: 4px;
 }
 
 .tags {

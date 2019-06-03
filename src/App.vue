@@ -1,16 +1,20 @@
 <template>
   <div id="app">
     <Banner></Banner>
+    <PhotoArea></PhotoArea>
   </div>
 </template>
 
 <script>
 import Banner from './components/Banner.vue'
+import PhotoArea from './components/PhotoArea.vue'
+
 
 export default {
   name: 'app',
   components: {
-    Banner
+    Banner,
+    PhotoArea
   }
 }
 </script>

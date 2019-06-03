@@ -10,6 +10,8 @@
 import Banner from './components/Banner.vue'
 import Search from './components/Search.vue'
 import PhotoArea from './components/PhotoArea.vue'
+import { fetchPhotosByKeyword } from './API'
+
 
 
 export default {
@@ -28,7 +30,8 @@ export default {
         this.searchWord = searchWord
         const baseUrl = 'https://api.unsplash.com/search/photos'
         let url = baseUrl +`?query=${searchWord}&orientation=squarish&client_id=${unsplashKey}`
-        console.log(url)
+        let photoData = await fetchPhotosByKeyword(url)
+        console.log(photoData)
       } catch(error) {
         this.error = error.message
       }

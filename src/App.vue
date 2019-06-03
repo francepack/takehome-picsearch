@@ -29,7 +29,7 @@ export default {
       try {
         this.searchWord = searchWord
         const baseUrl = 'https://api.unsplash.com/search/photos'
-        let url = baseUrl +`?query=${searchWord}&orientation=squarish&client_id=${unsplashKey}`
+        let url = baseUrl +`?query=${searchWord}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
         let photoData = await fetchPhotosByKeyword(url)
         let photos = cleanPhotoData(photoData)
         this.photos = photos

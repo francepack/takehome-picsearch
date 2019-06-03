@@ -1,5 +1,6 @@
 export const cleanPhotoData = (photoData) => {
   return photoData.results.map(photo => {
+    console.log(photo)
     let tags = ''
     if (photo.tags.length) {
       tags = photo.tags.map(tag => (tag.title))
@@ -8,9 +9,9 @@ export const cleanPhotoData = (photoData) => {
       {
         id: photo.id,
         created_at: photo.created_at,
-        name: photo.description,
+        description: photo.description,
         likes: photo.likes,
-        description: photo.alt_description,
+        alt_description: photo.alt_description,
         tags: tags,
         url: photo.urls.full,
         user: photo.user.username,

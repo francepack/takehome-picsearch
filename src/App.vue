@@ -22,6 +22,18 @@ export default {
       error: '',
     }
   },
+  methods: {
+    async getPhotos(searchWord) {
+      try {
+        this.searchWord = searchWord
+        const baseUrl = 'https://api.unsplash.com/search/photos'
+        let url = baseUrl +`?query=${searchWord}&orientation=squarish&client_id=${unsplashKey}`
+        console.log(url)
+      } catch(error) {
+        this.error = error.message
+      }
+    }
+  },
   components: {
     Banner,
     Search,

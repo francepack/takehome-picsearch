@@ -1,6 +1,9 @@
 <template>
   <section class="photo">
-    <p>Photo credit: {{ photo.user }}</p>
+    <div class="photo-head">
+      <img src="http://www.pngall.com/wp-content/uploads/2/ThumbTack-PNG-File-Download-Free.png" />
+      <p>Photo credit: {{ photo.user }}</p>
+    </div>
     <div class="image-area">
       <img :src="photo.url" :alt="photo.alt_description" class="picture" />
     </div>
@@ -36,10 +39,20 @@ export default {
 
 <style>
 .photo {
-  border: 4px solid black;
+  background-color: #e0ab69;
+  border: 4px solid #2c3e50;
   border-radius: 12px;
   margin: 30px;
   width: 28%;
+}
+
+.photo-head img {
+  height: 40px;
+  width: 40px;
+}
+
+.photo-head p {
+  margin-top: 0;
 }
 
 .picture {

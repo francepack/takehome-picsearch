@@ -6,7 +6,7 @@
              placeholder="Search for..."
              v-model="searchInput"
       />
-      <button>Submit</button>
+      <button :disabled="!searchInput">Submit</button>
     </form>
   </section>
 </template>
@@ -53,6 +53,10 @@ button {
   height: 40px;
   padding: 0;
   width: 10%;
+}
+
+button:disabled {
+  opacity: .7;
 }
 
 button:hover {

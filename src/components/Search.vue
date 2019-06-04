@@ -6,7 +6,7 @@
              placeholder="Search for..."
              v-model="searchInput"
       />
-      <button :disabled="!searchInput">Submit</button>
+      <button :disabled="!searchInput" class="submit">Submit</button>
     </form>
   </section>
 </template>
@@ -43,7 +43,7 @@ export default {
   width: 30%;
 }
 
-button {
+.submit {
   background-color: #b2b2b9;
   border: 2px solid #364350;
   border-radius: 0 12px 12px 0;
@@ -64,5 +64,12 @@ button:hover {
   box-shadow: 6px 6px 6px #5c5c77;
   color: #543434;
   cursor: pointer;
+}
+
+button:disabled:hover {
+  background-color: #b2b2b9;
+  box-shadow: 4px 4px 4px #5c5c77;
+  color: #613d3d;
+  cursor: default;
 }
 </style>

@@ -7,7 +7,10 @@
     <h4 v-if="this.noResults">No results! Try another search term.</h4>
     <h4 v-if="this.error">{{ error }}</h4>
     <PhotoArea v-if="photos.length" :photos="photos"></PhotoArea>
-    <button v-if="photos.length" v-on:click="this.addMorePhotos">Show more!</button>
+    <div v-if="photos.length" class="bottom-control">
+      <button @click="this.addMorePhotos">Show more pics!</button>
+      <button @click="this.clearPhotos">Start over</button>
+    </div>
   </div>
 </template>
 
@@ -32,6 +35,7 @@ export default {
   },
   methods: {
     async getPhotos(searchWord) {
+      this.pageCount = 1
       try {
         this.searchWord = searchWord
         const baseUrl = "https://api.unsplash.com/search/photos"
@@ -104,5 +108,23 @@ h4 {
 
 a {
   text-decoration: none;
+}
+
+.bottom-control {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0 100px 0;
+}
+
+.bottom-control button {
+  background-color: #b2b2b9;
+  border: 2px solid #364350;
+  border-radius: 12px;
+  box-shadow: 4px 4px 4px #5c5c77;
+  color: #613d3d;
+  font-size: 18px;
+  height: 40px;
+  padding: 0;
+  width: 20%;
 }
 </style>

@@ -27,6 +27,5 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  /* font-size: 200%; */
 }
 </style>

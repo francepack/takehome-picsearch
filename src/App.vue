@@ -81,7 +81,8 @@ html {
 }
 
 h4 {
-  color: #0e2131;
+  text-shadow: 1px 1px 1px #29292d;
+  /* color: #2c3e50; */
   font-size: 200%;
   margin: 0;
   margin-top: 20px;

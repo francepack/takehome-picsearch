@@ -23,7 +23,6 @@
 </template>
 
 <script>
-// imports here
 
 export default {
   name: 'photo',
@@ -32,8 +31,7 @@ export default {
       type: Object,
       required: true,
     },
-  },
-  
+  }, 
 };
 </script>
 

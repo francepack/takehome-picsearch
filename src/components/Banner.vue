@@ -25,7 +25,7 @@ export default {
 
 <style>
 h1 {
-  color: #051e38;
+  color: #414e5d;
   font-size: 400%;
   margin-top: 0;
 }

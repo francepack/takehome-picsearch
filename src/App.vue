@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <Banner v-show="showTitle" @clear="clearPhotos"></Banner>
+    <Banner @clear="clearPhotos"></Banner>
     <Search @searchPhotos="getPhotos"></Search>
     <h4 v-if="this.searchWord">You searched: "<em>{{ this.searchWord }}</em>"</h4>
     <h4 v-else>Type in a search term to begin!</h4>
+    <h4 v-if="this.noResults">No results! Try another search term.</h4>
+    <h4 v-if="this.error">{{ error }}</h4>
     <PhotoArea v-if="photos.length" :photos="photos"></PhotoArea>
   </div>
 </template>
@@ -21,9 +23,9 @@ export default {
   data () {
     return {
       searchWord: '',
-      showTitle: true,
       photos: [],
       error: '',
+      noResults: false
     }
   },
   methods: {
@@ -33,6 +35,7 @@ export default {
         const baseUrl = 'https://api.unsplash.com/search/photos'
         let url = baseUrl +`?query=${searchWord}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
         let photoData = await fetchPhotosByKeyword(url)
+        this.checkResults(photoData)
         let photos = cleanPhotoData(photoData)
         this.photos = photos
       } catch(error) {
@@ -40,10 +43,15 @@ export default {
       }
     },
     clearPhotos() {
-      console.log('in method')
       this.searchWord = ''
       this.photos = []
-      console.log(this.photos)
+    },
+    checkResults(photoData) {
+      if (!photoData.results.length) {
+        this.noResults = true
+      } else {
+        this.noResults = false
+      }
     }
   },
   components: {

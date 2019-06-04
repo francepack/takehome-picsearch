@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import Photo from './Photo.vue'
+import Photo from "./Photo.vue"
 
 export default {
-  name: 'photoArea',
+  name: "photoArea",
   props: {
     photos: {
       type: Array,
@@ -17,9 +17,8 @@ export default {
   },
   components: {
     Photo,
-  },
-  
-};
+  }, 
+}
 </script>
 
 <style>

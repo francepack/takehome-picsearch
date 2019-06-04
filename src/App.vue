@@ -11,20 +11,20 @@
 </template>
 
 <script>
-import Banner from './components/Banner.vue'
-import Search from './components/Search.vue'
-import PhotoArea from './components/PhotoArea.vue'
-import { fetchPhotosByKeyword } from './API'
-import { cleanPhotoData } from './Utils'
-import { unsplashKey } from './api_key/apiKey'
+import Banner from "./components/Banner.vue"
+import Search from "./components/Search.vue"
+import PhotoArea from "./components/PhotoArea.vue"
+import { fetchPhotosByKeyword } from "./API"
+import { cleanPhotoData } from "./Utils"
+import { unsplashKey } from "./api_key/apiKey"
 
 export default {
-  name: 'app',
+  name: "app",
   data () {
     return {
-      searchWord: '',
+      searchWord: "",
       photos: [],
-      error: '',
+      error: "",
       noResults: false
     }
   },
@@ -32,7 +32,7 @@ export default {
     async getPhotos(searchWord) {
       try {
         this.searchWord = searchWord
-        const baseUrl = 'https://api.unsplash.com/search/photos'
+        const baseUrl = "https://api.unsplash.com/search/photos"
         let url = baseUrl +`?query=${searchWord}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
         let photoData = await fetchPhotosByKeyword(url)
         this.checkResults(photoData)
@@ -43,7 +43,7 @@ export default {
       }
     },
     clearPhotos() {
-      this.searchWord = ''
+      this.searchWord = ""
       this.photos = []
     },
     checkResults(photoData) {
@@ -68,11 +68,11 @@ export default {
 }
 
 html {
-  background: url('https://ae01.alicdn.com/kf/HTB1E2WvdER1BeNjy0Fmq6z0wVXab/light-color-plank-backdrop-for-newborn-baby-photo-shoot-children-simulate-wooden-floor-board-background-digital.jpg_640x640.jpg')
+  background: url("https://ae01.alicdn.com/kf/HTB1E2WvdER1BeNjy0Fmq6z0wVXab/light-color-plank-backdrop-for-newborn-baby-photo-shoot-children-simulate-wooden-floor-board-background-digital.jpg_640x640.jpg")
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

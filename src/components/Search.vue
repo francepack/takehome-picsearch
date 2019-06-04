@@ -1,5 +1,5 @@
 <template>
-  <section class='search-area'>
+  <section class="search-area">
     <form @submit.prevent="handleSubmit">
       <input type="text"
              class="search-input"
@@ -13,24 +13,23 @@
 
 <script>
 export default {
-  name: 'search',
+  name: "search",
   data() {
     return {
-      searchInput: '',
+      searchInput: "",
     }
   },
   methods: {
     handleSubmit() {
       const searchWord = this.searchInput
-      this.$emit('searchPhotos', searchWord);
-      this.searchInput = ''
+      this.$emit("searchPhotos", searchWord)
+      this.searchInput = ""
     },
   },
 }
 </script>
 
 <style>
-
 .search-input {
   background-color: #c5cbd4;
   border: 2px solid #364350;
@@ -62,5 +61,4 @@ button:hover {
   color: #543434;
   cursor: pointer;
 }
-
 </style>

@@ -1,6 +1,6 @@
 <template>
   <header class="banner">
-    <h1><span @click='clearPhotos' class='title'>Picsearch</span>
+    <h1><span @click="clearPhotos" class="title">Picsearch</span>
       <span @click="handleClick" class="info">i</span>
     </h1>
     <div class="instructions">
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'banner',
+  name: "banner",
   data() {
     return {
       showInfo: false,
@@ -24,14 +24,13 @@ export default {
       this.showInfo = !this.showInfo
     },
     clearPhotos() {
-      this.$emit('clear')
+      this.$emit("clear")
     }
   },
-};
+}
 </script>
 
 <style>
-
 h1 {
   color: #29292d;
   font-size: 400%;

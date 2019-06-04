@@ -23,16 +23,15 @@
 </template>
 
 <script>
-
 export default {
-  name: 'photo',
+  name: "photo",
   props: {
     photo: {
       type: Object,
       required: true,
     },
   }, 
-};
+}
 </script>
 
 <style>

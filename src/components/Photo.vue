@@ -8,7 +8,7 @@
       <img :src="photo.url" :alt="photo.alt_description" class="picture" />
     </div>
     <div class="photo-info">
-      <h3>User Description</h3>
+      <h3>Description</h3>
       <p v-if="!photo.description && !photo.alt_description">No description given by user</p>
       <p>{{ photo.description }}</p>
       <p>{{ photo.alt_description }}</p>

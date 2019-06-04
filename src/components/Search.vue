@@ -38,6 +38,7 @@ export default {
   border-radius: 12px 0 0 12px;
   font-size: 18px;
   height: 40px;
+  padding: 0;
   text-indent: 20px;
   width: 30%;
 }
@@ -49,7 +50,14 @@ button {
   color: #613d3d;
   font-size: 18px;
   height: 40px;
+  padding: 0;
   width: 10%;
+}
+
+button:hover {
+  background-color: #9d9da9;
+  color: #543434;
+  cursor: pointer;
 }
 
 </style>

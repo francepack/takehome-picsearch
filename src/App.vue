@@ -7,7 +7,7 @@
     <h4 v-if="this.noResults">No results! Try another search term.</h4>
     <h4 v-if="this.error">{{ error }}</h4>
     <PhotoArea v-if="photos.length" :photos="photos"></PhotoArea>
-    <button v-if="photos.length" @:click="addMorePhotos">Show more!</button>
+    <button v-if="photos.length" v-on:click="this.addMorePhotos">Show more!</button>
   </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
       try {
         this.searchWord = searchWord
         const baseUrl = "https://api.unsplash.com/search/photos"
-        let url = baseUrl +`?query=${searchWord}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
+        let url = baseUrl +`?query=${searchWord}&page=${this.pageCount}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
         let photoData = await fetchPhotosByKeyword(url)
         this.checkResults(photoData)
         let photos = cleanPhotoData(photoData)
@@ -45,14 +45,13 @@ export default {
       }
     },
     async addMorePhotos() {
-      console.log('add')
       this.pageCount++
       try {
         const baseUrl = "https://api.unsplash.com/search/photos"
         let url = baseUrl +`?query=${this.searchWord}&page=${this.pageCount}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
         let newPhotoData = await fetchPhotosByKeyword(url)
         let newPhotos = cleanPhotoData(newPhotoData)
-        this.photos = [...this.photos, newPhotos]
+        this.photos = this.photos.concat(newPhotos)
       } catch(error) {
         this.error = error.message
       }

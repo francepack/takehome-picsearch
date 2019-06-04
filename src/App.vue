@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <Banner v-show="showTitle"></Banner>
+    <Banner v-show="showTitle" @clear="clearPhotos"></Banner>
     <Search @searchPhotos="getPhotos"></Search>
-    <h4 v-if="this.searchWord">You searched: "{{ this.searchWord }}"</h4>
+    <h4 v-if="this.searchWord">You searched: "<em>{{ this.searchWord }}</em>"</h4>
+    <h4 v-else>Type in a search term to begin!</h4>
     <PhotoArea v-if="photos.length" :photos="photos"></PhotoArea>
   </div>
 </template>
@@ -38,6 +39,12 @@ export default {
         this.error = error.message
       }
     },
+    clearPhotos() {
+      console.log('in method')
+      this.searchWord = ''
+      this.photos = []
+      console.log(this.photos)
+    }
   },
   components: {
     Banner,

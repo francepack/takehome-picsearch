@@ -40,6 +40,7 @@ export default {
   background-color: #e0ab69;
   border: 4px solid #2c3e50;
   border-radius: 12px;
+  box-shadow: 6px 6px 6px #29292d;
   margin: 30px;
   width: 28%;
 }

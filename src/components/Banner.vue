@@ -1,11 +1,11 @@
 <template>
   <header class="banner">
-    <h1>Picsearch
-      <span @click="handleClick">i</span>
+    <h1><span @click='clearPhotos' class='title'>Picsearch</span>
+      <span @click="handleClick" class="info">i</span>
     </h1>
     <div class="instructions">
-      <p v-if="this.showInfo">Type a word or phrase and submit to show pictures of that subject! Uses <a href="https://unsplash.com/developers">Unsplash</a> photo API. 
-        <span @click="handleClick">X</span>
+      <p v-if="this.showInfo">Type a word or phrase and submit to show pictures of that subject! Click title to clear results. Uses <a href="https://unsplash.com/developers">Unsplash</a> photo API. 
+        <span @click="handleClick" class="info">X</span>
       </p>
     </div>
   </header>
@@ -23,9 +23,11 @@ export default {
   methods: {
     handleClick() {
       this.showInfo = !this.showInfo
+    },
+    clearPhotos() {
+      this.$emit('clear')
     }
-  }
-  
+  },
 };
 </script>
 
@@ -36,6 +38,7 @@ h1 {
   font-size: 400%;
   margin-top: 0;
   margin-bottom: 20px;
+  text-shadow: 4px 4px 4px #5c5c77;
   position: relative;
 }
 
@@ -46,7 +49,7 @@ h1 {
   width: 100%;
 }
 
-.banner span {
+.info {
   background-color: #c7c7c7;
   border: 1px solid #2c3e50;
   border-radius: 25px;
@@ -57,8 +60,12 @@ h1 {
   position: absolute;
 }
 
-.banner span:hover {
+.info:hover {
   background-color: #bbabab;
+  cursor: pointer;
+}
+
+.title:hover {
   cursor: pointer;
 }
 </style>

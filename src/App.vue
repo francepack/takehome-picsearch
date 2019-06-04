@@ -2,6 +2,7 @@
   <div id="app">
     <Banner v-show="showTitle"></Banner>
     <Search @searchPhotos="getPhotos"></Search>
+    <h4 v-if="this.searchWord">You searched: "{{ this.searchWord }}"</h4>
     <PhotoArea v-if="photos.length" :photos="photos"></PhotoArea>
   </div>
 </template>
@@ -62,6 +63,13 @@ html {
   text-align: center;
   color: #2c3e50;
   margin-top: 30px;
+}
+
+h4 {
+  color: #0e2131;
+  font-size: 200%;
+  margin: 0;
+  margin-top: 20px;
 }
 
 a {

@@ -30,17 +30,17 @@ npm install
 ```
 An API key for Unsplash photo API is required.
 
-To use, you will need to obtain one [here](https://unsplash.com/developers).
+To use, you will need to register to obtain a key [here](https://unsplash.com/developers).
 
-To use key, cd into src folder and create a foler named
+To use key, in your root folder, create a file named
 ```
-api_key
-```
-Inside, create a file called 
-```
-apiKey.js
+.env.development
 ```
 The contents of this file should be
 ```
-export const unsplashKey = 'YOUR_KEY_HERE'
+VUE_APP_KEY=your_key_here
+```
+To see the app you cloned down in your browser
+```
+npm run serve
 ```

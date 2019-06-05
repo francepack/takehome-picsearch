@@ -23,16 +23,15 @@
 </template>
 
 <script>
-
 export default {
-  name: 'photo',
+  name: "Photo",
   props: {
     photo: {
       type: Object,
       required: true,
     },
   }, 
-};
+}
 </script>
 
 <style>
@@ -40,6 +39,7 @@ export default {
   background-color: #e0ab69;
   border: 4px solid #2c3e50;
   border-radius: 12px;
+  box-shadow: 6px 6px 6px #29292d;
   margin: 30px;
   width: 28%;
 }
@@ -58,6 +58,7 @@ export default {
   border-top: 2px solid #2c3e50;
   border-bottom: 2px solid #2c3e50;
   height: 350px;
+  max-width: 550px;
   width: 100%;
 }
 
@@ -78,5 +79,50 @@ h3 {
 .tag {
   display: inline;
   list-style: none;
+} 
+
+@media screen and (min-width: 2000px) {
+  .picture {
+    border: 2px solid #2c3e50;
+  }
 }
+
+@media screen and (max-width: 1150px) {
+  .photo {
+    width: 40%;
+  }
+
+  .photo:nth-child(odd) {
+    margin-left: 50px;
+    margin-right: 0;
+  }
+
+   .photo:nth-child(even) {
+    margin-left: 0;
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .photo {
+    width: 70%; 
+  }
+
+  .photo:nth-child(odd) {
+    margin: 0 0 40px 0;    
+  }
+
+  .photo:nth-child(even) {
+    margin: 0 0 40px 0;    
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .photo {
+    width: 85%; 
+  }
+}
+
+
+
 </style>

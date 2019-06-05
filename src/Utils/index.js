@@ -1,6 +1,6 @@
 export const cleanPhotoData = (photoData) => {
   return photoData.results.map(photo => {
-    let tags = ''
+    let tags = ""
     if (photo.tags.length) {
       tags = photo.tags.map(tag => (tag.title))
     }

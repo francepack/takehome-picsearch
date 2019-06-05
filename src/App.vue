@@ -1,43 +1,77 @@
 <template>
   <div id="app">
-    <Banner v-show="showTitle"></Banner>
+    <Banner @clear="clearPhotos"></Banner>
     <Search @searchPhotos="getPhotos"></Search>
-    <h4 v-if="this.searchWord">You searched: "{{ this.searchWord }}"</h4>
+    <h4 v-if="this.searchWord">You searched: "<em>{{ this.searchWord }}</em>"</h4>
+    <h4 v-else>Type in a search term to begin!</h4>
+    <h4 v-if="this.noResults">No results! Try another search term.</h4>
+    <h4 v-if="this.error">{{ error }}</h4>
     <PhotoArea v-if="photos.length" :photos="photos"></PhotoArea>
+    <div v-if="photos.length" class="bottom-control">
+      <button @click="this.addMorePhotos">Show more pics!</button>
+      <button @click="this.clearPhotos">Start over</button>
+    </div>
   </div>
 </template>
 
 <script>
-import Banner from './components/Banner.vue'
-import Search from './components/Search.vue'
-import PhotoArea from './components/PhotoArea.vue'
-import { fetchPhotosByKeyword } from './API'
-import { cleanPhotoData } from './Utils'
-import { unsplashKey } from './api_key/apiKey'
+import Banner from "./components/Banner.vue"
+import Search from "./components/Search.vue"
+import PhotoArea from "./components/PhotoArea.vue"
+import { fetchPhotosByKeyword } from "./API"
+import { cleanPhotoData } from "./Utils"
+import { unsplashKey } from "./api_key/apiKey"
 
 export default {
-  name: 'app',
+  name: "App",
   data () {
     return {
-      searchWord: '',
-      showTitle: true,
+      searchWord: "",
       photos: [],
-      error: '',
+      error: "",
+      noResults: false,
+      pageCount: 1,
     }
   },
   methods: {
     async getPhotos(searchWord) {
+      this.pageCount = 1
       try {
         this.searchWord = searchWord
-        const baseUrl = 'https://api.unsplash.com/search/photos'
-        let url = baseUrl +`?query=${searchWord}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
+        const baseUrl = "https://api.unsplash.com/search/photos"
+        let url = baseUrl +`?query=${searchWord}&page=${this.pageCount}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
         let photoData = await fetchPhotosByKeyword(url)
+        this.checkResults(photoData)
         let photos = cleanPhotoData(photoData)
         this.photos = photos
       } catch(error) {
         this.error = error.message
       }
     },
+    async addMorePhotos() {
+      this.pageCount++
+      try {
+        const baseUrl = "https://api.unsplash.com/search/photos"
+        let url = baseUrl +`?query=${this.searchWord}&page=${this.pageCount}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
+        let newPhotoData = await fetchPhotosByKeyword(url)
+        let newPhotos = cleanPhotoData(newPhotoData)
+        this.photos = this.photos.concat(newPhotos)
+      } catch(error) {
+        this.error = error.message
+      }
+    },
+    clearPhotos() {
+      this.searchWord = ""
+      this.photos = []
+      this.pageCount = 1
+    },
+    checkResults(photoData) {
+      if (!photoData.results.length) {
+        this.noResults = true
+      } else {
+        this.noResults = false
+      }
+    }
   },
   components: {
     Banner,
@@ -52,12 +86,12 @@ export default {
   box-sizing: border-box;
 }
 
-html {
-  background: url('https://ae01.alicdn.com/kf/HTB1E2WvdER1BeNjy0Fmq6z0wVXab/light-color-plank-backdrop-for-newborn-baby-photo-shoot-children-simulate-wooden-floor-board-background-digital.jpg_640x640.jpg')
+body {
+  background: url("https://ae01.alicdn.com/kf/HTB1E2WvdER1BeNjy0Fmq6z0wVXab/light-color-plank-backdrop-for-newborn-baby-photo-shoot-children-simulate-wooden-floor-board-background-digital.jpg_640x640.jpg");
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -66,7 +100,7 @@ html {
 }
 
 h4 {
-  color: #0e2131;
+  text-shadow: 1px 1px 1px #29292d;
   font-size: 200%;
   margin: 0;
   margin-top: 20px;
@@ -74,5 +108,23 @@ h4 {
 
 a {
   text-decoration: none;
+}
+
+.bottom-control {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0 100px 0;
+}
+
+.bottom-control button {
+  background-color: #b2b2b9;
+  border: 2px solid #364350;
+  border-radius: 12px;
+  box-shadow: 4px 4px 4px #5c5c77;
+  color: #613d3d;
+  font-size: 18px;
+  height: 40px;
+  padding: 0;
+  width: 20%;
 }
 </style>

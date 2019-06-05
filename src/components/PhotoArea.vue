@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import Photo from './Photo.vue'
+import Photo from "./Photo.vue"
 
 export default {
-  name: 'photoArea',
+  name: "PhotoArea",
   props: {
     photos: {
       type: Array,
@@ -17,9 +17,8 @@ export default {
   },
   components: {
     Photo,
-  },
-  
-};
+  }, 
+}
 </script>
 
 <style>
@@ -27,6 +26,11 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  /* font-size: 200%; */
+}
+
+@media screen and (max-width: 750px) {
+  .photo-area {
+    justify-content: center;
+  }
 }
 </style>

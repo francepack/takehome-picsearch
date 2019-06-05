@@ -20,7 +20,6 @@ import Search from "./components/Search.vue"
 import PhotoArea from "./components/PhotoArea.vue"
 import { fetchPhotosByKeyword } from "./API"
 import { cleanPhotoData } from "./Utils"
-import { unsplashKey } from "./api_key/apiKey"
 
 export default {
   name: "App",
@@ -39,7 +38,7 @@ export default {
       try {
         this.searchWord = searchWord
         const baseUrl = "https://api.unsplash.com/search/photos"
-        let url = baseUrl +`?query=${searchWord}&page=${this.pageCount}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
+        let url = baseUrl +`?query=${searchWord}&page=${this.pageCount}&orientation=squarish&per_page=12&client_id=${process.env.VUE_APP_KEY}`
         let photoData = await fetchPhotosByKeyword(url)
         this.checkResults(photoData)
         let photos = cleanPhotoData(photoData)
@@ -52,7 +51,7 @@ export default {
       this.pageCount++
       try {
         const baseUrl = "https://api.unsplash.com/search/photos"
-        let url = baseUrl +`?query=${this.searchWord}&page=${this.pageCount}&orientation=squarish&per_page=12&client_id=${unsplashKey}`
+        let url = baseUrl +`?query=${this.searchWord}&page=${this.pageCount}&orientation=squarish&per_page=12&client_id=${process.env.VUE_APP_KEY}`
         let newPhotoData = await fetchPhotosByKeyword(url)
         let newPhotos = cleanPhotoData(newPhotoData)
         this.photos = this.photos.concat(newPhotos)

@@ -1,2 +1,0 @@
-export const unsplashKey = 'cc6794a4f688c2a25700ac53a00f169af5ca81e37071df97a8c15fad28447779'
-export const unsplashSecret = 'a7be765281c452899cccead7f783319870518ff442395fcf242d184baa3a58be'

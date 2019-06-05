@@ -46,11 +46,12 @@ export default {
 
 .photo-head img {
   height: 40px;
-  width: 40px;
+  margin-top: 2px;
+  width: 48px;
 }
 
 .photo-head p {
-  margin-top: 0;
+  margin: 0 0 4px 0;
   font-size: 150%;
 }
 

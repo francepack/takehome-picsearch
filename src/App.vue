@@ -23,7 +23,7 @@ import { cleanPhotoData } from "./Utils"
 import { unsplashKey } from "./api_key/apiKey"
 
 export default {
-  name: "app",
+  name: "App",
   data () {
     return {
       searchWord: "",
@@ -86,7 +86,7 @@ export default {
   box-sizing: border-box;
 }
 
-html {
+body {
   background: url("https://ae01.alicdn.com/kf/HTB1E2WvdER1BeNjy0Fmq6z0wVXab/light-color-plank-backdrop-for-newborn-baby-photo-shoot-children-simulate-wooden-floor-board-background-digital.jpg_640x640.jpg");
 }
 

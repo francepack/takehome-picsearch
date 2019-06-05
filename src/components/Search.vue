@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "search",
+  name: "Search",
   data() {
     return {
       searchInput: "",
@@ -73,12 +73,13 @@ button:disabled:hover {
   cursor: default;
 }
 
-  @media screen and (max-width: 750px) {
-    .search-input {
-      width: 55%;
-    }
-    .submit {
-      width: 20%;
-    }
+@media screen and (max-width: 750px) {
+  .search-input {
+    width: 55%;
   }
+  
+  .submit {
+    width: 20%;
+  }
+}
 </style>

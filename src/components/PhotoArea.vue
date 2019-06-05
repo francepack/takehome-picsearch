@@ -8,7 +8,7 @@
 import Photo from "./Photo.vue"
 
 export default {
-  name: "photoArea",
+  name: "PhotoArea",
   props: {
     photos: {
       type: Array,

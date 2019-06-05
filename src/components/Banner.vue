@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "banner",
+  name: "Banner",
   data() {
     return {
       showInfo: false,

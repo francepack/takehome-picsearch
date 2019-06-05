@@ -81,6 +81,12 @@ h3 {
   list-style: none;
 } 
 
+@media screen and (min-width: 2000px) {
+  .picture {
+    border: 2px solid #2c3e50;
+  }
+}
+
 @media screen and (max-width: 1150px) {
   .photo {
     width: 40%;
@@ -95,27 +101,28 @@ h3 {
     margin-left: 0;
     margin-right: 50px;
   }
+}
 
-  @media screen and (max-width: 750px) {
-    .photo {
-      width: 70%; 
-    }
-
-    .photo:nth-child(odd) {
-      margin: 0 0 40px 0;    
-    }
-
-    .photo:nth-child(even) {
-      margin: 0 0 40px 0;    
-    }
+@media screen and (max-width: 750px) {
+  .photo {
+    width: 70%; 
   }
 
-    @media screen and (max-width: 500px) {
-      .photo {
-        width: 85%; 
-    }
+  .photo:nth-child(odd) {
+    margin: 0 0 40px 0;    
+  }
+
+  .photo:nth-child(even) {
+    margin: 0 0 40px 0;    
   }
 }
+
+@media screen and (max-width: 500px) {
+  .photo {
+    width: 85%; 
+  }
+}
+
 
 
 </style>

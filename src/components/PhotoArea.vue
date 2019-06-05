@@ -27,4 +27,10 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 750px) {
+  .photo-area {
+    justify-content: center;
+  }
+}
 </style>

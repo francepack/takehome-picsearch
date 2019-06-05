@@ -35,7 +35,7 @@ h1 {
   color: #29292d;
   font-size: 400%;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 17px;
   text-shadow: 3px 3px 3px #5c5c77;
   position: relative;
 }

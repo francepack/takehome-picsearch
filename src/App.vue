@@ -140,5 +140,10 @@ a {
   .bottom-control button {
     width: 70%;
   }
+
+  h4 {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
 }
 </style>

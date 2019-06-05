@@ -40,7 +40,7 @@ export default {
   height: 40px;
   padding: 0;
   text-indent: 20px;
-  width: 30%;
+  width: 35%;
 }
 
 .submit {
@@ -75,11 +75,14 @@ button:disabled:hover {
 
 @media screen and (max-width: 750px) {
   .search-input {
-    width: 55%;
+    height: 50px;
+    width: 52%;
   }
-  
+
   .submit {
-    width: 20%;
+    height: 50px;
+    width: 18%;
   }
+
 }
 </style>

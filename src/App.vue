@@ -112,8 +112,8 @@ a {
 
 .bottom-control {
   display: flex;
-  justify-content: space-around;
-  margin: 50px 0 100px 0;
+  flex-direction: column;
+  align-items: center;
 }
 
 .bottom-control button {
@@ -124,7 +124,21 @@ a {
   color: #613d3d;
   font-size: 18px;
   height: 40px;
+  margin-bottom: 30px;
   padding: 0;
-  width: 20%;
+  width: 30%;
+}
+
+.bottom-control button:hover {
+  background-color: #9d9da9;
+  box-shadow: 6px 6px 6px #5c5c77;
+  color: #543434;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+  .bottom-control button {
+    width: 70%;
+  }
 }
 </style>

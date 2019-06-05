@@ -1,29 +1,46 @@
-# picsearch
+# Picsearch
+Explore Unsplash photo API through Picsearch - Type in a search term to see what photos come up!
 
-## Project setup
+This app was built by [Mason France](https://www.linkedin.com/in/masonfrance/) as a means of learning Vue.js.
+
+### [Deployed on heroku - click to check out](https://takehome-picsearch.herokuapp.com/)
+
+## Screenshots
+
+<img width="1424" alt="Screen Shot 2019-06-04 at 9 33 33 PM" src="https://user-images.githubusercontent.com/44355328/58928715-e1db8f80-8710-11e9-8354-e2aa2350a0c9.png">
+
+<img width="554" alt="Screen Shot 2019-06-04 at 9 35 51 PM" src="https://user-images.githubusercontent.com/44355328/58928738-fe77c780-8710-11e9-9ff5-d1be1835fcfe.png">
+
+## Technology
+- Vue.js
+- API
+- Heroku
+
+## To Use
+
+#### [Deployed on Heroku](https://takehome-picsearch.herokuapp.com/)
+
+To bring onto your device, cd into the file you'd like to place this project and
+```
+git clone https://github.com/francepack/takehome-picsearch.git
+```
+cd into new file and 
 ```
 npm install
 ```
+An API key for Unsplash photo API is required.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+To use, you will need to obtain one [here](https://unsplash.com/developers).
 
-### Compiles and minifies for production
+To use key, cd into src folder and create a foler named
 ```
-npm run build
+api_key
 ```
-
-### Run your tests
+Inside, create a file called 
 ```
-npm run test
+apiKey.js
 ```
-
-### Lints and fixes files
+The contents of this file should be
 ```
-npm run lint
+export const unsplashKey = 'YOUR_KEY_HERE'
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
